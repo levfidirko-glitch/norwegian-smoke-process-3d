@@ -1,0 +1,1 @@
+export default function Delivery(){return <main><section><div className="eyebrow">ALMATY</div><h1>DELIVERY<br/><span>TO YOUR TABLE.</span></h1><div className="card"><h3>DELIVERY</h3><p>Zones and fees are managed from Admin.</p></div><div className="card"><h3>PICKUP</h3><p>Pickup address and hours are configurable.</p></div></section></main>}

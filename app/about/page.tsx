@@ -1,0 +1,1 @@
+export default function About(){return <main><section><div className="eyebrow">OUR STORY</div><h1>NORDIC SPIRIT.<br/><span>KAZAKH SOUL.</span></h1><p>Norwegian Smoke is a premium smoked fish and chicken brand. Replace this with your approved brand story.</p></section></main>}

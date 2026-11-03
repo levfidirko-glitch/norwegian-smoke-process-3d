@@ -1,0 +1,1 @@
+export default function Terms(){return <main><section><div className="eyebrow">LEGAL</div><h1>TERMS & CONDITIONS</h1><p>This starter page must be replaced with approved terms for orders, payment, delivery and returns.</p></section></main>}

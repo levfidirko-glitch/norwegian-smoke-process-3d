@@ -1,0 +1,1 @@
+export default function Contacts(){return <main><section><div className="eyebrow">NORWEGIAN SMOKE</div><h1>CONTACT</h1><div className="card"><p>Almaty, Kazakhstan</p><p>Phone: configure before launch</p><p>WhatsApp / Instagram: configure before launch</p></div></section></main>}

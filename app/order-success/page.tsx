@@ -1,0 +1,1 @@
+export default function Success(){return <main><section><div className="eyebrow">NORWEGIAN SMOKE</div><h1>THANK YOU.</h1><p>Your order has been received.</p><a className="btn" href="/shop">CONTINUE SHOPPING</a></section></main>}

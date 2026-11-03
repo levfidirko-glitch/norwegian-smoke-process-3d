@@ -1,0 +1,2 @@
+import {NextResponse} from "next/server"; import {requireAdmin} from "@/lib/auth"; import {prisma} from "@/lib/prisma";
+export async function POST(req:Request,{params}:{params:Promise<{id:string}>}){try{await requireAdmin();const {id}=await params;const f=await req.formData();await prisma.order.update({where:{id},data:{paymentStatus:String(f.get("paymentStatus")) as any,orderStatus:String(f.get("orderStatus")) as any}});return NextResponse.redirect(new URL(`/admin/orders/${id}`,req.url))}catch(e:any){return NextResponse.json({error:e.message},{status:400})}}

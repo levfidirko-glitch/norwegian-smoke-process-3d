@@ -1,0 +1,143 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  CUSTOMER
+  ADMIN
+}
+
+enum Category {
+  FISH
+  CHICKEN
+  GIFT
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+  CANCELLED
+}
+
+enum OrderStatus {
+  NEW
+  PAID
+  PROCESSING
+  READY
+  OUT_FOR_DELIVERY
+  DELIVERED
+  COMPLETED
+  CANCELLED
+}
+
+enum DeliveryMethod {
+  DELIVERY
+  PICKUP
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  phone        String?
+  passwordHash String
+  role         Role     @default(CUSTOMER)
+  orders       Order[]
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Product {
+  id            String      @id @default(cuid())
+  name          String
+  slug          String      @unique
+  category      Category
+  description   String
+  price         Int
+  weight        String
+  sku           String      @unique
+  stock         Int         @default(0)
+  ingredients   String?
+  nutrition     String?
+  allergens     String?
+  smokingMethod String?
+  storage       String?
+  shelfLife     String?
+  imageUrl      String?
+  gallery       String[]
+  featured      Boolean     @default(false)
+  bestseller    Boolean     @default(false)
+  isNew         Boolean     @default(false)
+  active        Boolean     @default(true)
+  orderItems    OrderItem[]
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}
+
+model DeliveryZone {
+  id        String   @id @default(cuid())
+  name      String
+  districts String[]
+  fee       Int
+  freeFrom  Int?
+  active    Boolean  @default(true)
+}
+
+model Order {
+  id              String         @id @default(cuid())
+  orderNumber     String         @unique
+  userId          String?
+  user            User?          @relation(fields: [userId], references: [id])
+  customerName    String
+  phone           String
+  email           String
+  deliveryMethod  DeliveryMethod
+  address         String?
+  deliveryZone    String?
+  subtotal        Int
+  deliveryFee     Int
+  discount        Int            @default(0)
+  total           Int
+  paymentStatus   PaymentStatus  @default(PENDING)
+  orderStatus     OrderStatus    @default(NEW)
+  paymentProvider String?
+  paymentId       String?
+  items           OrderItem[]
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  orderId   String
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+  name      String
+  quantity  Int
+  price     Int
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+}
+
+model PromoCode {
+  id         String    @id @default(cuid())
+  code       String    @unique
+  type       String
+  value      Int
+  minimum    Int       @default(0)
+  expiresAt  DateTime?
+  usageLimit Int?
+  used       Int       @default(0)
+  active     Boolean   @default(true)
+}
+
+model Setting {
+  key   String @id
+  value String
+}

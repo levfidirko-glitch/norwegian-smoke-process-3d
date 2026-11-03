@@ -1,0 +1,1 @@
+Put real approved photos here: smoked-trout.jpg, smoked-salmon.jpg, signature-chicken.jpg, smoked-chicken-fillet.jpg

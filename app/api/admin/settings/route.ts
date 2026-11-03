@@ -1,0 +1,2 @@
+import {NextResponse} from "next/server"; import {requireAdmin} from "@/lib/auth"; import {prisma} from "@/lib/prisma";
+export async function POST(req:Request){try{await requireAdmin();const f=await req.formData();for(const key of ["brand_name","slogan","phone","whatsapp","instagram","pickup_address","pickup_hours"]){const value=String(f.get(key)||"");await prisma.setting.upsert({where:{key},update:{value},create:{key,value}})}return NextResponse.redirect(new URL("/admin/settings",req.url))}catch(e:any){return NextResponse.json({error:e.message},{status:400})}}

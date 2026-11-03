@@ -1,0 +1,1 @@
+export default function Privacy(){return <main><section><div className="eyebrow">LEGAL</div><h1>PRIVACY POLICY</h1><p>This starter page must be replaced with a Kazakhstan-compliant privacy policy reviewed for your legal entity.</p></section></main>}

@@ -1,0 +1,7 @@
+import {requireAdmin} from "@/lib/auth"; import {prisma} from "@/lib/prisma";
+export default async function DeliveryAdmin(){try{await requireAdmin()}catch{return <main><section><h1>Unauthorized</h1></section></main>}
+const zones=await prisma.deliveryZone.findMany();
+return <main><section><div className="eyebrow">LOGISTICS</div><h1>DELIVERY ZONES</h1>
+<div className="card"><form className="form" action="/api/admin/delivery" method="post"><h3>ADD ZONE</h3><input name="name" placeholder="Zone name" required/><input name="districts" placeholder="Districts separated by comma" required/><input name="fee" type="number" placeholder="Delivery fee ₸" required/><input name="freeFrom" type="number" placeholder="Free delivery from ₸ (optional)"/><button className="btn">ADD ZONE</button></form></div>
+<div className="card"><table className="table"><thead><tr><th>ZONE</th><th>DISTRICTS</th><th>FEE</th><th>FREE FROM</th><th>ACTIVE</th><th></th></tr></thead><tbody>{zones.map(z=><tr key={z.id}><td>{z.name}</td><td>{z.districts.join(", ")}</td><td>₸{z.fee.toLocaleString()}</td><td>{z.freeFrom?`₸${z.freeFrom.toLocaleString()}`:"—"}</td><td>{z.active?"YES":"NO"}</td><td><form action={`/api/admin/delivery/${z.id}`} method="post"><button className="btn dark" name="action" value="toggle">TOGGLE</button> <button className="btn danger" name="action" value="delete">DELETE</button></form></td></tr>)}</tbody></table></div>
+</section></main>}

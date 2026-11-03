@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Norwegian Smoke — Kazakh Soul</title>
+
+<meta name="description" content="Norwegian Smoke — премиальная копчёная рыба и курица">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="header" id="header">
+
+<a class="logo" href="#home">
+<img src="images/logo.jpeg" alt="Norwegian Smoke">
+</a>
+
+
+<nav>
+
+<a data-i18n="catalog" href="#shop">КАТАЛОГ</a>
+<a data-i18n="story" href="#story">НАША ИСТОРИЯ</a>
+<a data-i18n="process" href="#process">КОПЧЕНИЕ</a>
+<a data-i18n="delivery" href="#delivery">ДОСТАВКА</a>
+<a data-i18n="contacts" href="#contacts">КОНТАКТЫ</a>
+
+</nav>
+
+
+<div class="language-switcher">
+
+<button class="lang active" data-lang="ru">RU</button>
+<button class="lang" data-lang="en">EN</button>
+<button class="lang" data-lang="kz">KZ</button>
+
+</div>
+
+
+<button class="cart-btn" id="openCart">
+
+<span data-i18n="cart">
+КОРЗИНА
+</span>
+
+<b id="cartCount">0</b>
+
+</button>
+
+
+<button class="menu-btn" id="menuBtn">
+☰
+</button>
+
+
+</header>
+
+
+
+<main>
+
+
+<section class="hero" id="home">
+
+
+<div class="hero-content">
+
+
+<p class="eyebrow" data-i18n="hero">
+КОПЧЁНАЯ РЫБА И КУРИЦА
+</p>
+
+<div class="title-smoke" aria-hidden="true">
+  <span class="title-smoke-blob title-smoke-a"></span>
+  <span class="title-smoke-blob title-smoke-b"></span>
+  <span class="title-smoke-blob title-smoke-c"></span>
+</div>
+
+<h1>
+NORWEGIAN
+<br>
+<em>SMOKE</em>
+</h1>
+
+
+<p class="tagline">
+KAZAKH SOUL
+</p>
+
+
+<p class="hero-copy"
+data-i18n="heroText">
+
+Создано дымом. Сделано с душой.
+
+</p>
+
+
+<a 
+class="btn gold"
+data-i18n="shop"
+href="#shop">
+
+СМОТРЕТЬ КОЛЛЕКЦИЮ
+
+</a>
+
+
+</div>
+
+
+<div class="hero-visual" aria-hidden="true">
+  <div class="mountain-glow"></div>
+  <div class="mountain-range mountain-back"></div>
+  <div class="mountain-range mountain-mid"></div>
+  <div class="mountain-range mountain-front"></div>
+  <div class="hero-photo hero-photo-fish"><img src="images/salmon.jpeg" alt=""></div>
+  <div class="hero-photo hero-photo-chicken"><img src="images/chicken.jpeg" alt=""></div>
+  <div class="smoke-stream smoke-stream-1"></div>
+  <div class="smoke-stream smoke-stream-2"></div>
+  <div class="smoke-stream smoke-stream-3"></div>
+  <div class="smoke-puff smoke-puff-1"></div>
+  <div class="smoke-puff smoke-puff-2"></div>
+  <div class="smoke-puff smoke-puff-3"></div>
+  <div class="smoke-puff smoke-puff-4"></div>
+</div>
+<div class="hero-smoke"></div>
+<div class="smoke-field" aria-hidden="true"></div>
+<div class="hero-grain" aria-hidden="true"></div>
+
+
+</section>
+
+
+
+
+<section class="categories reveal-section">
+
+
+<div class="section-head">
+
+<p class="eyebrow">
+THE COLLECTION
+</p>
+
+<h2 data-i18n="collection">
+КОЛЛЕКЦИЯ
+</h2>
+
+</div>
+
+
+
+<div class="category-grid">
+
+
+<a class="category fish" href="#shop">
+
+
+<span>01</span>
+
+<h3 data-i18n="fish">
+КОПЧЁНАЯ РЫБА
+</h3>
+
+
+<p data-i18n="fishText">
+Нежная текстура. Глубокий дым. Премиальное качество.
+</p>
+
+
+<b>
+→
+</b>
+
+
+</a>
+
+
+
+
+<a class="category chicken" href="#shop">
+
+
+<span>02</span>
+
+
+<h3 data-i18n="chicken">
+КОПЧЁНАЯ КУРИЦА
+</h3>
+
+
+<p data-i18n="chickenText">
+Насыщенный вкус, нежная структура и фирменное копчение.
+</p>
+
+
+<b>
+→
+</b>
+
+
+</a>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section class="shop reveal-section" id="shop">
+
+
+<div class="section-head">
+
+<p class="eyebrow">
+SIGNATURE SELECTION
+</p>
+
+
+<h2 data-i18n="products">
+НАШИ ПРОДУКТЫ
+</h2>
+
+</div>
+
+
+
+<div class="filters">
+
+<button class="filter active" data-filter="all">
+ВСЕ
+</button>
+
+<button class="filter" data-filter="fish">
+РЫБА
+</button>
+
+<button class="filter" data-filter="chicken">
+КУРИЦА
+</button>
+
+
+</div>
+
+
+
+<div class="products" id="products"></div>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="story reveal-section" id="story">
+<div class="story-visual" aria-hidden="true">
+  <div class="story-ring ring-one"></div><div class="story-ring ring-two"></div>
+  <div class="story-image"><img src="images/salmon.jpeg" alt=""></div>
+  <span>SMOKE / SOUL / NORTH</span>
+</div>
+
+
+<div class="story-copy">
+<p class="eyebrow">OUR STORY</p>
+<h2>СЕВЕРНЫЙ ДУХ.<br><em>КАЗАХСКАЯ ДУША.</em></h2>
+</div>
+
+
+
+<p data-i18n="storyText">
+
+Norwegian Smoke — премиальный бренд копчёных продуктов.
+Мы соединяем северные традиции копчения и казахский характер.
+Используем качественные ингредиенты, натуральный дым и ручную подготовку.
+
+</p>
+
+
+
+</section>
+
+
+
+
+
+
+<section class="process reveal-section" id="process">
+
+
+<div class="section-head">
+
+<p class="eyebrow">
+THE ART OF SMOKING
+</p>
+
+
+<h2 data-i18n="processTitle">
+
+ОТ ПОДГОТОВКИ
+<br>
+ДО ВАШЕГО СТОЛА
+
+</h2>
+
+
+</div>
+
+<div class="process-hero-visual" aria-hidden="true">
+<img src="images/process-banner.png" alt="">
+<div class="process-hero-overlay"></div>
+</div>
+
+<div class="steps">
+
+
+<div class="process-step process-step-1">
+<figure class="process-visual"><img src="images/process-1.jpg" alt="Свежая рыба и качественные ингредиенты"><span class="process-visual-shine"></span></figure>
+<div class="process-copy">
+<b>01</b>
+<h3 data-i18n="step1">ВЫБОР</h3>
+<p>Качественные ингредиенты.</p>
+</div>
+</div>
+
+
+
+<div class="process-step process-step-2">
+<figure class="process-visual"><img src="images/process-2.jpg" alt="Специи и маринование продукта"><span class="process-visual-shine"></span></figure>
+<div class="process-copy">
+<b>02</b>
+<h3 data-i18n="step2">ПОДГОТОВКА</h3>
+<p>Маринование и специи.</p>
+</div>
+</div>
+
+
+
+
+<div class="process-step process-step-3">
+<figure class="process-visual"><img src="images/process-3.jpg" alt="Процесс горячего копчения с дымом"><span class="process-visual-shine"></span></figure>
+<div class="process-copy">
+<b>03</b>
+<h3 data-i18n="step3">КОПЧЕНИЕ</h3>
+<p>Фирменный процесс дыма.</p>
+</div>
+</div>
+
+
+
+
+<div class="process-step process-step-4">
+<figure class="process-visual"><img src="images/process-4.jpg" alt="Вакуумная упаковка Norwegian Smoke"><span class="process-visual-shine"></span></figure>
+<div class="process-copy">
+<b>04</b>
+<h3 data-i18n="step4">УПАКОВКА</h3>
+<p>Готово к доставке.</p>
+</div>
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section class="delivery reveal-section" id="delivery">
+<div class="delivery-smoke" aria-hidden="true"></div>
+
+
+<p class="eyebrow">
+ALMATY
+</p>
+
+
+<h2 data-i18n="deliveryTitle">
+
+ОТ НАШЕГО ДЫМА
+<br>
+К ВАШЕМУ СТОЛУ
+
+</h2>
+
+
+<p data-i18n="deliveryText">
+
+Закажите онлайн с доставкой или самовывозом.
+
+</p>
+
+
+<a class="btn outline"
+href="#shop">
+
+ЗАКАЗАТЬ
+
+</a>
+
+
+</section>
+
+
+
+
+
+
+
+</main>
+
+
+
+
+
+
+
+<div class="scroll-progress" aria-hidden="true"><span></span></div>
+<div class="cursor-glow" aria-hidden="true"></div>
+<footer id="contacts">
+
+
+<div class="logo">
+
+<img src="images/logo.jpeg">
+
+</div>
+
+
+<div>
+
+<p>
+Алматы, Казахстан
+</p>
+
+<p>
+WhatsApp · Instagram · TikTok
+</p>
+
+</div>
+
+
+
+<div>
+
+<p>
+© 2026 Norwegian Smoke
+</p>
+
+
+</div>
+
+
+</footer>
+<div class="overlay" id="overlay"></div>
+<aside class="cart" id="cart">
+<div class="cart-head">
+<h2 data-i18n="cart">
+КОРЗИНА
+</h2>
+<button id="closeCart">
+×
+</button>
+</div>
+<div id="cartItems"></div>
+<div class="cart-bottom">
+<div>
+<span>
+ИТОГО
+</span>
+<strong id="subtotal">
+₸0
+</strong>
+</div>
+<button 
+class="btn gold full"
+id="checkoutBtn"
+data-i18n="checkout">
+ОФОРМИТЬ ЗАКАЗ
+</button>
+<p class="note">
+Демонстрационная оплата
+</p>
+</div>
+</aside>
+
+
+
+
+
+
+
+<div class="modal" id="checkoutModal">
+
+
+<div class="checkout-box">
+
+
+<button class="modal-close" id="closeCheckout">
+×
+</button>
+
+
+<p class="eyebrow">
+CHECKOUT
+</p>
+
+
+<h2 data-i18n="checkout">
+ОФОРМЛЕНИЕ ЗАКАЗА
+</h2>
+
+
+
+<form id="checkoutForm">
+
+
+<input required placeholder="Имя">
+
+
+<input required placeholder="Телефон">
+
+
+<input required type="email" placeholder="Email">
+
+
+<select>
+
+<option>
+Доставка Алматы
+</option>
+
+<option>
+Самовывоз
+</option>
+
+</select>
+
+
+<input placeholder="Адрес">
+
+
+<div class="order-summary" id="checkoutSummary"></div>
+
+
+<button class="btn gold full">
+
+ОТПРАВИТЬ
+
+</button>
+
+
+
+</form>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

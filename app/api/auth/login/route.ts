@@ -1,0 +1,1 @@
+import {NextResponse} from 'next/server'; import {login} from '@/lib/auth'; export async function POST(r:Request){const f=await r.formData();const ok=await login(String(f.get('email')),String(f.get('password')));return NextResponse.redirect(new URL(ok?'/admin':'/admin?error=1',r.url))}

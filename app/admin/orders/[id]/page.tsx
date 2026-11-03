@@ -1,0 +1,8 @@
+import {requireAdmin} from "@/lib/auth"; import {prisma} from "@/lib/prisma"; import {notFound} from "next/navigation";
+export default async function OrderDetail({params}:{params:Promise<{id:string}>}){try{await requireAdmin()}catch{return <main><section><h1>Unauthorized</h1></section></main>}
+const {id}=await params;const o=await prisma.order.findUnique({where:{id},include:{items:true}});if(!o)return notFound();
+return <main><section><div className="eyebrow">ORDER</div><h1>{o.orderNumber}</h1>
+<div className="order-layout"><div className="card"><h3>CUSTOMER</h3><p>{o.customerName}<br/>{o.phone}<br/>{o.email}</p><h3>DELIVERY</h3><p>{o.deliveryMethod}<br/>{o.deliveryZone||"—"}<br/>{o.address||"Pickup / address not specified"}</p></div>
+<div className="card"><h3>ITEMS</h3>{o.items.map(i=><p key={i.id}>{i.name} × {i.quantity} — ₸{(i.price*i.quantity).toLocaleString()}</p>)}<hr/><p>Subtotal: ₸{o.subtotal.toLocaleString()}</p><p>Delivery: ₸{o.deliveryFee.toLocaleString()}</p><h2>₸{o.total.toLocaleString()}</h2></div></div>
+<div className="card"><h3>STATUS</h3><form action={`/api/admin/orders/${o.id}`} method="post"><select name="paymentStatus" defaultValue={o.paymentStatus}><option>PENDING</option><option>PAID</option><option>FAILED</option><option>REFUNDED</option><option>CANCELLED</option></select><select name="orderStatus" defaultValue={o.orderStatus}><option>NEW</option><option>PAID</option><option>PROCESSING</option><option>READY</option><option>OUT_FOR_DELIVERY</option><option>DELIVERED</option><option>COMPLETED</option><option>CANCELLED</option></select><button className="btn">UPDATE ORDER</button></form></div>
+</section></main>}

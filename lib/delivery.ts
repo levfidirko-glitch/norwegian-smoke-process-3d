@@ -1,0 +1,1 @@
+import {prisma} from "./prisma"; export async function delivery(subtotal:number,district?:string){const z=await prisma.deliveryZone.findFirst({where:{active:true}});if(!z)return {fee:0,zone:null};return {fee:z.freeFrom&&subtotal>=z.freeFrom?0:z.fee,zone:z.name}}
